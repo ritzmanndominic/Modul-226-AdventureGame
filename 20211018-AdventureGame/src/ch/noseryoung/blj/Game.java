@@ -1,6 +1,7 @@
 package ch.noseryoung.blj;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Stack;
 
 public class Game {
@@ -17,6 +18,21 @@ public class Game {
         items = new ArrayList<>();
         doors = new ArrayList<>();
     }
+
+    public void createRooms(ArrayList<Room> rooms) {
+        Random randomNumber = new Random();
+        String[] RoomNames = {"Office", "Kitchen", "Bedroom", "Toilet", "Bathroom", "Balcony", "Storeroom", "Gym",
+                "Livingroom", "Secretroom"};
+
+        for (String roomName : RoomNames) {
+            Room room = new Room(roomName, false);
+            if (randomNumber.nextInt(2) == 1) {
+                room.setEnemy(true);
+            }
+            rooms.add(room);
+        }
+    }
+
 
     public ArrayList<Room> getRooms() {
         return rooms;
