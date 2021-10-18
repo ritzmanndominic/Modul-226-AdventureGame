@@ -63,4 +63,16 @@ public class IO {
         }
         return lengthDifference;
     }
+
+    public void map(Game game) {
+        System.out.print("\u001B[0m");
+        drawMultipleBox(20, 4, 4, game, "", "Balcony", "Balcony", "Balcony",
+                "Bathroom", "Livingroom", "Livingroom", "Gym", "Storeroom", "Bedroom", "Bedroom", "Kitchen",
+                "", "Toilet", "Secretroom", "Office");
+        System.out.println("\u001B[36m");
+        drawMultipleBox(24, 3, 4, game, " 1: Print out the possible rooms ",
+                " 2: Move between rooms", "3: to inspect the room", "4: show inventory",
+                "5: Save data", "6: Load old data", "7: output playtime", "8: go one Room back","9: Show possible steps back" ,"10: exit game");
+        System.out.print("\u001B[0m");
+    }
 }
