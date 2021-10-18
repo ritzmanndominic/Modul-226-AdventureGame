@@ -19,6 +19,37 @@ public class Game {
         doors = new ArrayList<>();
     }
 
+    /**
+     * This methode creates the doors between the rooms
+     *
+     * @param rooms Arraylist to get the room
+     * @param doors Arraylist where the doors will be added
+     *              index 0 -> Office
+     *              index 1 -> Kitchen
+     *              index 2 -> Bedroom
+     *              index 3 -> Toilet
+     *              index 4 -> Bathroom
+     *              index 5 -> Balcony
+     *              index 6 -> Storeroom
+     *              index 7 -> Gym
+     *              index 8 -> Livingroom
+     *              index 9 -> Secretroom
+     */
+    public void createDoors(ArrayList<Room> rooms, ArrayList<Door> doors) {
+        doors.add(new Door(new Room[]{rooms.get(0), rooms.get(1)}, false));
+        doors.add(new Door(new Room[]{rooms.get(0), rooms.get(9)}, true));
+        doors.add(new Door(new Room[]{rooms.get(1), rooms.get(2)}, false));
+        doors.add(new Door(new Room[]{rooms.get(1), rooms.get(7)}, false));
+        doors.add(new Door(new Room[]{rooms.get(7), rooms.get(8)}, false));
+        doors.add(new Door(new Room[]{rooms.get(7), rooms.get(5)}, false));
+        doors.add(new Door(new Room[]{rooms.get(5), rooms.get(8)}, false));
+        doors.add(new Door(new Room[]{rooms.get(8), rooms.get(4)}, false));
+        doors.add(new Door(new Room[]{rooms.get(8), rooms.get(2)}, false));
+        doors.add(new Door(new Room[]{rooms.get(2), rooms.get(3)}, false));
+        doors.add(new Door(new Room[]{rooms.get(2), rooms.get(6)}, false));
+        doors.add(new Door(new Room[]{rooms.get(6), rooms.get(4)}, false));
+    }
+
     public void createRooms(ArrayList<Room> rooms) {
         Random randomNumber = new Random();
         String[] RoomNames = {"Office", "Kitchen", "Bedroom", "Toilet", "Bathroom", "Balcony", "Storeroom", "Gym",
