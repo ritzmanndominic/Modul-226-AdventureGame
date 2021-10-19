@@ -7,8 +7,9 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name) {
+    public Item(String name, boolean alarm) {
         this.name = name;
+        this.alarm = alarm;
     }
 
     public String getName() {
@@ -17,5 +18,13 @@ public class Item {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isAlarm() {
+        return alarm;
+    }
+
+    public void setAlarm(boolean alarm) {
+        this.alarm = alarm;
     }
 }
