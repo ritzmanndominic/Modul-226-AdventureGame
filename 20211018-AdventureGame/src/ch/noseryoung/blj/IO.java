@@ -22,10 +22,10 @@ public class IO {
                 case 2 -> game.move(player, game);
 
                 //check if room has item
-                //case 3 -> game.inspectRoom(player);
+                case 3 -> game.inspectRoom(player);
 
                 //show inventory
-                // case 4 -> printInventory(player, game);
+                case 4 -> printInventory(player, game);
 
                 //save Data
                 // case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
