@@ -7,6 +7,47 @@ public class IO {
 
     public static Scanner scn = new Scanner(System.in);
 
+    public void switcher(Game game, Player player) {
+        game.getLastRoom().push(game.getActiveRoom());
+        int choice;
+        do {
+            map(game);
+            choice = readRangedInt(1, 10);
+            //  game.safeMove(game, player, startTime, 0);
+            switch (choice) {
+                //print possible rooms
+                case 1 -> possibleRoom(game.getActiveRoom(), game);
+
+                //move between rooms
+                case 2 -> game.move(player, game);
+
+                //check if room has item
+                //case 3 -> game.inspectRoom(player);
+
+                //show inventory
+                // case 4 -> printInventory(player, game);
+
+                //save Data
+                // case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
+
+                //Load Data
+                // case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
+
+                //play time
+                //case 7 -> game.gameTime(player);
+
+                //go room back
+                // case 8 -> game.safeMove(game);
+
+                //print out possible steps back
+                //case 9 -> game.countMovesPossibleBack();
+
+                //Exit program
+                case 10 -> System.exit(0);
+            }
+        } while (choice != 10);
+    }
+
     public static void drawMultipleBox(int maxLength, int width, int height, Game game, String... strings) {
         final String HO_LINE = "\u2550";
         final String VER_LINE = "\u2551";
