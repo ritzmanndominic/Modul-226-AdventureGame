@@ -207,4 +207,45 @@ public class IO {
         }
         System.out.println("\n");
     }
+
+    public void printEnemy() {
+        System.out.println("An enemy appeared");
+        System.out.println(" ``  `` `` ``  `` `` ``  `` `` ``  `` `:++/:..` `` ``  `` `` ``  `` `` ``  `` `` ``  `` `` ``  `` ``\n" +
+                "`` `` ``` `` `` ``` `` `` ``` `` `.:ohmNNmmNNmmmhyyo+/:.``` `` `` ``` `` `` ``` `` `` ``` `` `` ``` \n" +
+                "`````````````````````````````````yNNNNNNNmmmmmmmmmmmmNNNs```````````````````````````````````````````\n" +
+                " ``` `` `` ``` `` `` ``` `` `` ``mNNNNNNNmhooossyyhhdmmN+ `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``\n" +
+                "`` `` ``` `` `` ``  `` `` ``  `` NNNNNNNyooooo+++o++oohm/`  `` `` ``  `` `` ``  `` `` ``  `` `` ``  \n" +
+                " ``` `` `` ``` `` `` ``` `` `` `.NNNNmdmso:-+sooooo+ossy- `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``\n" +
+                "````````````````````````````````-NNNNhyhso/:+ysoo+sh/./o.`````````````````::/ooo````````````````````\n" +
+                "````````````````````````````````:NNNNhyhssooooyhhhsoo+ss.````````````````-sssddm````````````````````\n" +
+                " ``` `` `` ``` `` `` ``` `` `-``+NNdyyhhyyysyhhhhhyyssyy` `` ``` `` `` ./y:::hdm ``` `` `` ``` `` ``\n" +
+                "`` `` ``` `` `` ``` `` `` ``+hhdmmmmhhhhhhhhyyyyyyyyyyyy``` `` `` ````-so::/sds/`` `` ``  `` `` ``  \n" +
+                " ``` `` `` ``` `` `` ``` ``:hhhyyhdmmmNmmdhhhhhhhhhyyyyys``` ``` `` ./y/::oydo-` ``` `` `` ``` `` ``\n" +
+                "``````````````````````````-yhhhhyysoooosyhyyyhhhhhhhhhhhhy.````````.os::/ody+```````````````````````\n" +
+                "`` `` ``` `` `` ``` `` ```yhhhhhysoooooshysssyyhhyyyhhhhhhd.`` ```-y+::+ydo-``` `` `` ``` `` `` ``` \n" +
+                " ``` `` `` ``` `` `` ``` oyhhhhyyoooooshhhssssyyyyyyhhyyyymmmmN--/y::/ody+ `` `` ``  `` `` ``  `` ``\n" +
+                "`` `` ``` `` `` ``` `` `+yyysyyyoooooshddhssssyyyyyyhysssyhmmddNho::+smo-`` ``` `` `` ``  `` `` ``  \n" +
+                " ``` `` `` ``` `` `` ``:hyyyyyy+++++oydddhyyyssyyyyhysssssyhmmymo::shh+``` `` `` ``` `` `` ``` `` ``\n" +
+                "``````````````````````-hhyyyyyo/++++sdddhhyyyssyyyyhyssssosydmdhyyymo:``````````````````````````````\n" +
+                "`` `` ``` `` `` ``` `.yhyyyyho/+++osddddhhysssyyyyyhhysooooshmhdhhhmh+`` `` ``` `` `` ``` `` `` ``` \n" +
+                " ``` `` `` ``` `` `` shhhhhys//+++shhdhhhyysssyyssyyyysossooshmNmdmhmmh``` `` `` ``  `` `` ``  `` ``\n" +
+                "`` `` ``` `` `` ``` ohhhhhhy///++o:hhhhhyyssssyyssyy++ssoosoooyhhy:mmmN` `` ``` `` `` ``` `` `` ``` \n" +
+                "```````````````````:hhhhhhy+///++..hhhhhyyssssyssyyy+`+ooooooosyyyy.````````````````````````````````\n" +
+                "````````````````````-shhhh+//+++-`.ddddhhhyyyyyyyhsy/``+oooosyhho:``````````````````````````````````\n" +
+                "`` `` ``` `` `` ``` ``.+ho+/+++: `.dmmmdmdhhhhhhhhhy/```/ooss+.`` ``` `` `` ``` `` `` ``` `` `` ``` \n" +
+                " ``` `` `` ``` `` `` ````.```` ````yyhdmddhhhhhhhh+/-` `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``\n" +
+                "`` `` ``` `` `` ``` `` `` ``` `` `` -ydmmmddhhhhhhy- `` ``` `` `` ``` `` `` ``` `` `` ``` `` `` ``` \n" +
+                "```````````````````````````````````.hdmmmddddhhhhhy.````````````````````````````````````````````````\n" +
+                " ``` `` `` ``` `` `` ``` `` `` ````+mmdmmmddddhhhhhy-` `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``\n" +
+                "`` `` ``` `` `` ``` `` `` ``` `` .ymmmmdmmmddddhhhhhh+` ``` `` `` ``` `` `` ``` `` `` ``` `` `` ``  \n" +
+                " ``` `` `` ``` `` `` ``` `` `` `:dmmmmmmdmmmmddddhhhhho.` `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``\n" +
+                "`` `` ``` `` `` ``` `` `` ``` `ommmmmmmmddmmmmddddhhhhhy-`` `` `` ``` `` `` ``` `` `` ``` `` `` ``` \n" +
+                "`````````````````````````````.ymmmmmmmdhhhdmmmmddddhhhhhh/``````````````````````````````````````````\n" +
+                " ``` `` `` ``` `` `` ``` `` `.sdmmmmmdhhhs-smmmddmdddhhyyy+` ``` `` `` ``` `` `` ``` `` `` ``` `` ``\n" +
+                "`` `` ``` `` `` ``` `` `` ``` `/dmmdyyyy/` `+mmmdddddhssssso-` `` ``` `` `` ``` `` `` ``` `` `` ``` \n" +
+                " ``` `` `` ``` `` `` ``` `` `` `.syo+/:. ``` :dddddddddyssyho``` `` `` ``` `` `` ``` `` `` ``` `` ``\n" +
+                "``````````````````````````````````````````````-hdddddddmmmo.````````````````````````````````````````\n" +
+                "```````````````````````````````````````````````.ydddmNNh/```````````````````````````````````````````\n" +
+                " ``` `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` `oso/. `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``");
+    }
 }
