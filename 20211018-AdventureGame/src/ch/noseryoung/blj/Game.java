@@ -128,15 +128,15 @@ public class Game {
                 System.out.println("Oh no I shouldn't have taken that!");
                 System.out.println("\u001B[31myou lost a life\u001B[0m");
                 player.setLives(player.getLives() - 1);
-                //io.printHeart(player.getLives(), "red");
+                io.printHeart(player.getLives(), "red");
             }
             //if player has not the max amount of lives a live will be added
             else if (player.getLives() < player.getMaxLives()) {
                 player.setLives(player.getLives() + 1);
                 System.out.println("\u001B[32mnice! I got an extra life\u001B[0m");
-                //io.printHeart(player.getLives(), "green");
+                io.printHeart(player.getLives(), "green");
             } else {
-                //io.printHeart(player.getLives(), "normal");
+                io.printHeart(player.getLives(), "normal");
             }
             //the item will be added to player inventory and removed from current room
             player.getItemList().add(getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber));
