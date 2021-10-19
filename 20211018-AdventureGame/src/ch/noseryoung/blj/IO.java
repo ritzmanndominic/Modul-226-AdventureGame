@@ -72,7 +72,28 @@ public class IO {
         System.out.println("\u001B[36m");
         drawMultipleBox(24, 3, 4, game, " 1: Print out the possible rooms ",
                 " 2: Move between rooms", "3: to inspect the room", "4: show inventory",
-                "5: Save data", "6: Load old data", "7: output playtime", "8: go one Room back","9: Show possible steps back" ,"10: exit game");
+                "5: Save data", "6: Load old data", "7: output playtime", "8: go one Room back", "9: Show possible steps back", "10: exit game");
         System.out.print("\u001B[0m");
+    }
+
+    public void possibleRoom(int activeRoom, Game game) {
+        System.out.print("Possible rooms: ");
+        boolean first = false;
+        for (int i = 0; i < game.getDoors().size(); i++) {
+            if (game.getDoors().get(i).getConnector()[0] == game.getRooms().get(activeRoom)) {
+                if (first) {
+                    System.out.print(", ");
+                }
+                System.out.print(game.getDoors().get(i).getConnector()[1].getName());
+                first = true;
+            } else if (game.getDoors().get(i).getConnector()[1] == game.getRooms().get(activeRoom)) {
+                if (first) {
+                    System.out.print(", ");
+                }
+                System.out.print(game.getDoors().get(i).getConnector()[0].getName());
+                first = true;
+            }
+        }
+        System.out.println("\n");
     }
 }
