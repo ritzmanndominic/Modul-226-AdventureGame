@@ -65,6 +65,41 @@ public class Game {
     }
 
 
+    public void move(Player player, Game game) {
+        boolean validMove = false;
+        String newRoom;
+        String cancel = "x";
+        do {
+            System.out.print("\nType in the room you want to go in: ");
+            newRoom = IO.scn.nextLine();
+            for (Door door : getDoors()) {
+                if (door.getConnector()[0].getName().toLowerCase().equals(newRoom.toLowerCase()) ||
+                        door.getConnector()[1].getName().toLowerCase().equals(newRoom.toLowerCase())) {
+                    if (door.getConnector()[0].getName().toLowerCase().equals(getRooms().get(getActiveRoom()).getName().toLowerCase()) ||
+                            door.getConnector()[1].getName().toLowerCase().equals(getRooms().get(getActiveRoom()).getName().toLowerCase())) {
+                        validMove = true;
+                        for (int j = 0; j < getRooms().size(); j++) {
+                            if (newRoom.toLowerCase().equals(getRooms().get(j).getName().toLowerCase())) {
+                                setActiveRoom(j);
+                                getLastRoom().push(getActiveRoom());
+                            }
+                        }
+                    }
+                }
+            }
+            if (newRoom.equals(cancel)) {
+                validMove = true;
+            } else {
+                if (validMove) {
+                    System.out.println("You entered the " + newRoom);
+                    //enemyManager(player, game);
+                } else {
+                    System.out.print("The room could not be found, try again or press \"x\" to cancel");
+                }
+            }
+        } while (!validMove);
+    }
+
     public ArrayList<Room> getRooms() {
         return rooms;
     }

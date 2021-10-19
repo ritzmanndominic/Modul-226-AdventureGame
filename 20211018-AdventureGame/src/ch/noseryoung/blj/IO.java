@@ -1,6 +1,10 @@
 package ch.noseryoung.blj;
 
+import java.util.Scanner;
+
 public class IO {
+
+    public static Scanner scn = new Scanner(System.in);
 
     public static void drawMultipleBox(int maxLength, int width, int height, Game game, String... strings) {
         final String HO_LINE = "\u2550";
