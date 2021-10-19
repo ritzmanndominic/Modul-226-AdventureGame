@@ -17,6 +17,9 @@ public class Game {
         rooms = new ArrayList<>();
         items = new ArrayList<>();
         doors = new ArrayList<>();
+
+        createRooms(rooms);
+        createDoors(rooms, doors);
     }
 
     /**
