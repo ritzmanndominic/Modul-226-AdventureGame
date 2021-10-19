@@ -162,4 +162,32 @@ public class IO {
         }
         return input;
     }
+
+    public void printHeart(int amount, String color) {
+        if (color.equals("red")) {
+            System.out.println("\u001B[31m");
+        } else if (color.equals("green")) {
+            System.out.println("\u001B[32m");
+        }
+        for (int i = 0; i < amount; i++) {
+            System.out.print("  ░░░░   ░░░░  ");
+        }
+        System.out.println();
+        for (int i = 0; i < amount; i++) {
+            System.out.print(" ░░░░░░ ░░░░░░ ");
+        }
+        System.out.println();
+        for (int i = 0; i < amount; i++) {
+            System.out.print("  ░░░░░░░░░░░  ");
+        }
+        System.out.println();
+        for (int i = 0; i < amount; i++) {
+            System.out.print("    ░░░░░░░    ");
+        }
+        System.out.println();
+        for (int i = 0; i < amount; i++) {
+            System.out.print("      ░░░      ");
+        }
+        System.out.println("\n\u001B[0m");
+    }
 }
