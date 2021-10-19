@@ -1,5 +1,6 @@
 package ch.noseryoung.blj;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IO {
@@ -99,5 +100,25 @@ public class IO {
             }
         }
         System.out.println("\n");
+    }
+
+    public static int readRangedInt(int min, int max) {
+        Scanner scn = new Scanner(System.in);
+        int input = min - 1;
+        try {
+            input = scn.nextInt();
+        } catch (InputMismatchException var6) {
+            scn.nextLine();
+        }
+
+        while (input < min || input > max) {
+            System.out.println("There was an Error, please repeat your input");
+            try {
+                input = scn.nextInt();
+            } catch (InputMismatchException var5) {
+                scn.nextLine();
+            }
+        }
+        return input;
     }
 }
