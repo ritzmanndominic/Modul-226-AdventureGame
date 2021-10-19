@@ -20,6 +20,8 @@ public class Game {
 
         createRooms(rooms);
         createDoors(rooms, doors);
+        createItems(items);
+        addItems(rooms, items);
     }
 
     /**
@@ -64,6 +66,23 @@ public class Game {
                 room.setEnemy(true);
             }
             rooms.add(room);
+        }
+    }
+
+    public void createItems(ArrayList<Item> items) {
+        String[] itemNames = {"diamond", "gold", "coin", "golden skull", "ring", "sword", "bone", "cursed book", "wine", "easter egg"};
+        boolean[] alarm = {false, false, false, true, false, true, true, true, false, false};
+        for (int i = 0; i < itemNames.length; i++) {
+            Item item = new Item(itemNames[i], alarm[i]);
+            items.add(item);
+        }
+    }
+
+    public void addItems(ArrayList<Room> rooms, ArrayList<Item> items) {
+        for (int i = 0; i < rooms.size(); i++) {
+            Random random = new Random();
+            int randomNumber = random.nextInt(items.size());
+            rooms.get(randomNumber).getItemsArrayList().add(items.get(i));
         }
     }
 
