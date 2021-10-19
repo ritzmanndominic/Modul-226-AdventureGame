@@ -76,6 +76,7 @@ public class Game {
             System.out.print("\nType in the room you want to go in: ");
             newRoom = IO.scn.nextLine();
             for (Door door : getDoors()) {
+                //validMove = !door.isLocked();
                 if (door.getConnector()[0].getName().toLowerCase().equals(newRoom.toLowerCase()) ||
                         door.getConnector()[1].getName().toLowerCase().equals(newRoom.toLowerCase())) {
                     if (door.getConnector()[0].getName().toLowerCase().equals(getRooms().get(getActiveRoom()).getName().toLowerCase()) ||
