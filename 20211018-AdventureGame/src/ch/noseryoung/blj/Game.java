@@ -115,7 +115,7 @@ public class Game {
             } else {
                 if (validMove) {
                     System.out.println("You entered the " + newRoom);
-                    //enemyManager(player, game);
+                    enemyManager(player, game);
                 } else {
                     System.out.print("The room could not be found, try again or press \"x\" to cancel");
                 }
@@ -168,6 +168,95 @@ public class Game {
             System.out.println("\u001B[31myou have died\u001B[0m");
             System.exit(0);
         }
+    }
+
+    /**
+     * Manages the procedure of fight
+     *
+     * @param player player used to check and change lives during the fight
+     * @param game   game is used to draw box
+     */
+    public void enemyManager(Player player, Game game) {
+        if (getRooms().get(getActiveRoom()).isEnemy()) {
+            IO io = new IO();
+            io.printEnemy();
+            fight("Fight", player, game);
+        }
+    }
+
+    /**
+     * This manages the fight, a fight ends if either the player or the enemy dies
+     *
+     * @param answer checks if player wants to fight
+     * @param player player used to decrease and increase
+     * @param game   used to draw box
+     */
+    public void fight(String answer, Player player, Game game) {
+        if (answer.equals("Fight")) {
+            Random random = new Random();
+            int enemyMaxLive = 3;
+            int enemyLive = enemyMaxLive;
+            boolean fightEnded = false;
+            do {
+                IO.drawMultipleBox(20, 3, 1, game, "1: attack", "2: defence", "3: heal");
+                int choose = IO.readRangedInt(1, 3);
+                int enemyMove = random.nextInt(2) + 1;
+                switch (choose) {
+                    case 1 -> {
+                        if (enemyMove == 1) {
+                            System.out.println("The enemy too attacked, you and the enemy lose 1 live");
+                            player.setLives(player.getLives() - 1);
+                            enemyLive -= 1;
+                        } else if (enemyMove == 2) {
+                            System.out.println("Your enemy blocked your attack, you lost 1 live");
+                            player.setLives(player.getLives() - 1);
+                        } else {
+                            System.out.println("Your enemy tried to heal, he lost 2 lives");
+                            enemyLive -= 2;
+                        }
+                    }
+                    case 2 -> {
+                        if (enemyMove == 1) {
+                            System.out.println("Your enemy tried to attack you, he lost 1 live");
+                            enemyLive--;
+                        } else if (enemyMove == 2) {
+                            System.out.println("Your enemy too tried to block, no changes in health");
+                        } else {
+                            System.out.println("Your enemy healed himself, he gained 1 live");
+                            if (enemyLive < enemyMaxLive) {
+                                enemyLive++;
+                            }
+                        }
+                    }
+                    case 3 -> {
+                        if (enemyMove == 1) {
+                            System.out.println("Your enemy attacked you while healing, you lost 2 lives");
+                            player.setLives(player.getLives() - 2);
+                        } else if (enemyMove == 2) {
+                            System.out.println("Your enemy tried to block, you gained 1 live");
+                            heal(player);
+                        } else {
+                            System.out.println("Your enemy too healed himself, you and the enemy gained 1 live");
+                            heal(player);
+                        }
+                    }
+                    default -> System.out.println("error");
+                }
+                if (player.getLives() <= 0) {
+                    System.out.println("you died");
+                    System.exit(0);
+                } else if (enemyLive <= 0) {
+                    System.out.println("You defeated your enemy");
+                    fightEnded = true;
+                }
+                io.printHeart(player.getLives(), "red");
+            } while (!fightEnded);
+        } else if (answer.equals("Run")) {
+            move(player, game);
+        }
+    }
+
+    public void heal(Player player) {
     }
 
     public ArrayList<Room> getRooms() {
