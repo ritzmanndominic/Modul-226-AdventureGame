@@ -40,6 +40,7 @@ public class Game {
      *              index 8 -> Livingroom
      *              index 9 -> Secretroom
      */
+
     public void createDoors(ArrayList<Room> rooms, ArrayList<Door> doors) {
         doors.add(new Door(new Room[]{rooms.get(0), rooms.get(1)}, false));
         doors.add(new Door(new Room[]{rooms.get(0), rooms.get(9)}, true));
@@ -55,6 +56,11 @@ public class Game {
         doors.add(new Door(new Room[]{rooms.get(6), rooms.get(4)}, false));
     }
 
+    /**
+     * this methode will add all rooms to the arraylist
+     *
+     * @param rooms the arraylist where the rooms will be added to
+     */
     public void createRooms(ArrayList<Room> rooms) {
         Random randomNumber = new Random();
         String[] RoomNames = {"Office", "Kitchen", "Bedroom", "Toilet", "Bathroom", "Balcony", "Storeroom", "Gym",
@@ -69,6 +75,11 @@ public class Game {
         }
     }
 
+    /**
+     * this methode adds all items to the arraylist
+     *
+     * @param items Arraylist where the items will be added to
+     */
     public void createItems(ArrayList<Item> items) {
         String[] itemNames = {"diamond", "gold", "coin", "golden skull", "ring", "sword", "bone", "cursed book", "wine", "easter egg"};
         boolean[] alarm = {false, false, false, true, false, true, true, true, false, false};
@@ -78,6 +89,12 @@ public class Game {
         }
     }
 
+    /**
+     * This methode will randomly set the items to the rooms
+     *
+     * @param rooms Arraylist with the rooms where the items will be added to
+     * @param items Arraylist which holds all items
+     */
     public void addItems(ArrayList<Room> rooms, ArrayList<Item> items) {
         for (int i = 0; i < rooms.size(); i++) {
             Random random = new Random();
@@ -86,7 +103,12 @@ public class Game {
         }
     }
 
-
+    /**
+     * This methode will move the player to another room
+     *
+     * @param player Player which gets moved
+     * @param game   game is used to draw box
+     */
     public void move(Player player, Game game) {
         boolean validMove = false;
         String newRoom;
@@ -123,6 +145,11 @@ public class Game {
         } while (!validMove);
     }
 
+    /**
+     * Checks if room has items in it, it only checks for one item per use
+     *
+     * @param player to decrease player lives if item is alarmed
+     */
     public void inspectRoom(Player player) {
         //counts the amount of items in the current room
         int amountItems = 0;
