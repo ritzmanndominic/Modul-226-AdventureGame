@@ -204,7 +204,7 @@ public class Game {
                 switch (choose) {
                     case 1 -> {
                         if (enemyMove == 1) {
-                            System.out.println("The enemy too attacked, you and the enemy lose 1 live");
+                            System.out.println("The enemy attacked too, you and the enemy lose 1 live");
                             player.setLives(player.getLives() - 1);
                             enemyLive -= 1;
                         } else if (enemyMove == 2) {
@@ -256,7 +256,17 @@ public class Game {
         }
     }
 
+    /**
+     * This methode increases player health
+     *
+     * @param player player where the health increase
+     */
     public void heal(Player player) {
+        if (player.getLives() != player.getMaxLives()) {
+            player.setLives(player.getLives() + 1);
+        } else {
+            System.out.println("Your full");
+        }
     }
 
     public ArrayList<Room> getRooms() {
