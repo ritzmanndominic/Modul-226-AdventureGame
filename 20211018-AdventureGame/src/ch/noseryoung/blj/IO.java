@@ -28,7 +28,7 @@ public class IO {
                 case 4 -> printInventory(player, game);
 
                 //save Data
-                // case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
+                 case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
 
                 //Load Data
                 // case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
