@@ -31,7 +31,7 @@ public class IO {
                 case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
 
                 //Load Data
-                // case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
+                case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
 
                 //play time
                 //case 7 -> game.gameTime(player);
