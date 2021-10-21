@@ -6,6 +6,13 @@ import java.util.Stack;
 
 public class Game {
 
+    /**
+     * @rooms Stores all of the rooms in a arraylist.
+     * @items Stores all of the items in a arraylist.
+     * @doors Stores all of the doors that are connected in a arraylist.
+     * @activeRoom Sets the Starting Room to 5, which equals 'Balcony'.
+     * @lastRoom Saves all of the rooms that were entered.
+     */
     private final ArrayList<Room> rooms;
     private final ArrayList<Item> items;
     private final ArrayList<Door> doors;
@@ -13,6 +20,9 @@ public class Game {
     private Stack<Integer> lastRoom = new Stack<>();
     IO io = new IO();
 
+    /**
+     * This method creates all of the main things in the game. (rooms, doors, items and adds the items)
+     */
     public Game() {
         rooms = new ArrayList<>();
         items = new ArrayList<>();
@@ -80,7 +90,7 @@ public class Game {
 
     /**
      * this method add all items to the arraylist
-     *We have some items in the itemNames Array and another array, where we set the alarm of some items to true.
+     * We have some items in the itemNames Array and another array, where we set the alarm of some items to true.
      *
      * @param items Arraylist where the items will be added to
      */
@@ -94,7 +104,7 @@ public class Game {
     }
 
     /**
-     * This method will randomly set the items to the rooms
+     * This method will randomly set the items in the rooms
      *
      * @param rooms Arraylist with the rooms where the items will be added to
      * @param items Arraylist which holds all items
@@ -122,7 +132,6 @@ public class Game {
             System.out.print("\nType in the room you want to go in: ");
             newRoom = IO.scn.nextLine();
             for (Door door : getDoors()) {
-                //validMove = !door.isLocked();
                 if (door.getConnector()[0].getName().toLowerCase().equals(newRoom.toLowerCase()) ||
                         door.getConnector()[1].getName().toLowerCase().equals(newRoom.toLowerCase())) {
                     if (door.getConnector()[0].getName().toLowerCase().equals(getRooms().get(getActiveRoom()).getName().toLowerCase()) ||
@@ -217,7 +226,9 @@ public class Game {
     }
 
     /**
-     * This manages the fight, a fight ends if either the player or the enemy dies
+     * This manages the fight, a fight ends if either the player or the enemy dies.
+     * The player can attack, block or heal himself.
+     * If the player dies, the game is over.
      *
      * @param answer checks if player wants to fight
      * @param player player used to decrease and increase
@@ -289,9 +300,10 @@ public class Game {
     }
 
     /**
-     * This method increases player health
+     * This method increases the players health.
+     * It only increases when the player doesn't have full health.
      *
-     * @param player player where the health increase
+     * @param player player where the health increases.
      */
     public void heal(Player player) {
         if (player.getLives() != player.getMaxLives()) {
@@ -301,6 +313,11 @@ public class Game {
         }
     }
 
+    /**
+     * Some getters and setters.
+     *
+     * @return
+     */
     public ArrayList<Room> getRooms() {
         return rooms;
     }
