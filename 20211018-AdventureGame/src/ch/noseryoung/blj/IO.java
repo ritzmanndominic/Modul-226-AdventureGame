@@ -28,7 +28,7 @@ public class IO {
                 case 4 -> printInventory(player, game);
 
                 //save Data
-                 case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
+                case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
 
                 //Load Data
                 // case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
@@ -50,11 +50,14 @@ public class IO {
 
     /**
      * This method draws multiple boxes arround multiple Strings.
+     *
      * @param maxLength defines the max lenght of a Box -> 20 meaning it prints 20 Times the 'HO_LINE'.
-     * @param width
-     * @param height
-     * @param game
-     * @param strings
+     * @param width     defines how many boxes are on next to eachother.
+     * @param height    defines how many boxes are under eachother.
+     * @param game      defines for which game the boxes are drawn
+     * @param strings   write all of your Strings here and split the with a comma.
+     *                  -> "Attack", "Defense", "Heal"
+     *                  -> This will set each String in a Box. Width would be 3 and height 1.
      */
     public static void drawMultipleBox(int maxLength, int width, int height, Game game, String... strings) {
         final String HO_LINE = "\u2550";
@@ -106,6 +109,12 @@ public class IO {
         }
     }
 
+    /**
+     *
+     * @param maxLength
+     * @param usedLength
+     * @return
+     */
     private static int[] getLength(int maxLength, int usedLength) {
         int[] lengthDifference = new int[3];
         lengthDifference[0] = maxLength - usedLength;
@@ -118,6 +127,10 @@ public class IO {
         return lengthDifference;
     }
 
+    /**
+     * This method draws the map and the functions for the game.
+     * @param game defines which game
+     */
     public void map(Game game) {
         System.out.print("\u001B[0m");
         drawMultipleBox(20, 4, 4, game, "", "Balcony", "Balcony", "Balcony",
@@ -130,6 +143,13 @@ public class IO {
         System.out.print("\u001B[0m");
     }
 
+    /**
+     * This method prints out the possible rooms the player can get in.
+     * With the activeRoom the method searches for all door connections.
+     * It gets the name of each room and prints it out.
+     * @param activeRoom Gets where the player is right now.
+     * @param game defines for which game
+     */
     public void possibleRoom(int activeRoom, Game game) {
         System.out.print("Possible rooms: ");
         boolean first = false;
@@ -151,6 +171,14 @@ public class IO {
         System.out.println("\n");
     }
 
+    /**
+     * This method reads an int between a range.
+     * If the number isn't in the range, an error will be printed.
+     *
+     * @param min defines the minimum number
+     * @param max defines the maximum number
+     * @return returns the typed number
+     */
     public static int readRangedInt(int min, int max) {
         Scanner scn = new Scanner(System.in);
         int input = min - 1;
@@ -161,7 +189,7 @@ public class IO {
         }
 
         while (input < min || input > max) {
-            System.out.println("There was an Error, please repeat your input");
+            System.err.println("There was an Error, please repeat your input");
             try {
                 input = scn.nextInt();
             } catch (InputMismatchException var5) {
@@ -171,6 +199,11 @@ public class IO {
         return input;
     }
 
+    /**
+     *
+     * @param amount
+     * @param color
+     */
     public void printHeart(int amount, String color) {
         if (color.equals("red")) {
             System.out.println("\u001B[31m");
@@ -199,6 +232,11 @@ public class IO {
         System.out.println("\n\u001B[0m");
     }
 
+    /**
+     *
+     * @param player
+     * @param game
+     */
     public void printInventory(Player player, Game game) {
         int amountBoxesInRow = 3;
         String[] name = new String[player.getItemList().size()];
@@ -216,6 +254,9 @@ public class IO {
         System.out.println("\n");
     }
 
+    /**
+     *
+     */
     public void printEnemy() {
         System.out.println("An enemy appeared");
         System.out.println(" ``  `` `` ``  `` `` ``  `` `` ``  `` `:++/:..` `` ``  `` `` ``  `` `` ``  `` `` ``  `` `` ``  `` ``\n" +
