@@ -25,7 +25,8 @@ public class Game {
     }
 
     /**
-     * This methode creates the doors between the rooms
+     * This method creates the doors between the rooms.
+     * If the boolean locked is set to true, you need a key to open the door and to get into the room.
      *
      * @param rooms Arraylist to get the room
      * @param doors Arraylist where the doors will be added
@@ -57,7 +58,9 @@ public class Game {
     }
 
     /**
-     * this methode will add all rooms to the arraylist
+     * this method will add all rooms to the arraylist
+     * in the for each loop, we loop through the RoomNames Array and generate a random number.
+     * When the random number is 1, the setEnemy is set to true.
      *
      * @param rooms the arraylist where the rooms will be added to
      */
@@ -76,7 +79,8 @@ public class Game {
     }
 
     /**
-     * this methode adds all items to the arraylist
+     * this method add all items to the arraylist
+     *We have some items in the itemNames Array and another array, where we set the alarm of some items to true.
      *
      * @param items Arraylist where the items will be added to
      */
@@ -90,7 +94,7 @@ public class Game {
     }
 
     /**
-     * This methode will randomly set the items to the rooms
+     * This method will randomly set the items to the rooms
      *
      * @param rooms Arraylist with the rooms where the items will be added to
      * @param items Arraylist which holds all items
@@ -104,7 +108,8 @@ public class Game {
     }
 
     /**
-     * This methode will move the player to another room
+     * This method will move the player to another room.
+     * With the 'x' we can cancel the move and stay in the same room.
      *
      * @param player Player which gets moved
      * @param game   game is used to draw box
@@ -284,7 +289,7 @@ public class Game {
     }
 
     /**
-     * This methode increases player health
+     * This method increases player health
      *
      * @param player player where the health increase
      */
