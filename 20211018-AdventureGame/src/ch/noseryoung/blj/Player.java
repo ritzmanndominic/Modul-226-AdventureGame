@@ -4,6 +4,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * This class creates a template for a Player.
+ */
 public class Player {
     private ArrayList<Item> itemList = new ArrayList<>();
     private int lives;

@@ -2,6 +2,9 @@ package ch.noseryoung.blj;
 
 import java.util.ArrayList;
 
+/**
+ * This class creates a template for a room.
+ */
 public class Room {
     private String name;
     private ArrayList<Item> itemsArrayList = new ArrayList<>();

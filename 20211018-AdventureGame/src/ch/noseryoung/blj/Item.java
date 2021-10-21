@@ -1,5 +1,8 @@
 package ch.noseryoung.blj;
 
+/**
+ * This class creates a template for an Item.
+ */
 public class Item {
     private String name;
     private boolean alarm;

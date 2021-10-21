@@ -48,6 +48,14 @@ public class IO {
         } while (choice != 10);
     }
 
+    /**
+     * This method draws multiple boxes arround multiple Strings.
+     * @param maxLength defines the max lenght of a Box -> 20 meaning it prints 20 Times the 'HO_LINE'.
+     * @param width
+     * @param height
+     * @param game
+     * @param strings
+     */
     public static void drawMultipleBox(int maxLength, int width, int height, Game game, String... strings) {
         final String HO_LINE = "\u2550";
         final String VER_LINE = "\u2551";

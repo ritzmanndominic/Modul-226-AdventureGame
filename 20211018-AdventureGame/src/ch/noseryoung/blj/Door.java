@@ -1,5 +1,8 @@
 package ch.noseryoung.blj;
 
+/**
+ * This class creates a template for a door and their connection to another door.
+ */
 public class Door {
     private Room[] connector;
     private boolean locked;
