@@ -110,7 +110,6 @@ public class IO {
     }
 
     /**
-     *
      * @param maxLength
      * @param usedLength
      * @return
@@ -129,6 +128,7 @@ public class IO {
 
     /**
      * This method draws the map and the functions for the game.
+     *
      * @param game defines which game
      */
     public void map(Game game) {
@@ -147,8 +147,9 @@ public class IO {
      * This method prints out the possible rooms the player can get in.
      * With the activeRoom the method searches for all door connections.
      * It gets the name of each room and prints it out.
+     *
      * @param activeRoom Gets where the player is right now.
-     * @param game defines for which game
+     * @param game       defines for which game
      */
     public void possibleRoom(int activeRoom, Game game) {
         System.out.print("Possible rooms: ");
@@ -200,7 +201,6 @@ public class IO {
     }
 
     /**
-     *
      * @param amount
      * @param color
      */
@@ -233,7 +233,6 @@ public class IO {
     }
 
     /**
-     *
      * @param player
      * @param game
      */
