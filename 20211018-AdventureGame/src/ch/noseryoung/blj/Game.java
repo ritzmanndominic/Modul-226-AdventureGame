@@ -1,6 +1,8 @@
 package ch.noseryoung.blj;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.util.Stack;
 
@@ -311,6 +313,53 @@ public class Game {
         } else {
             System.out.println("Your full");
         }
+    }
+
+    /**
+     * This methode prints the playtime the player has played.
+     * If you save the game and load it later, your gametime equals
+     * the time, when you saved the game.
+     *
+     * @param player used if player has used a save file
+     */
+    public void gameTime(Player player) {
+        Date date = new Date();
+        Timestamp currentTime = new Timestamp(date.getTime());
+
+        long milliseconds = currentTime.getTime() - player.getStartTime().getTime() + player.getGameTime();
+        player.setGameTime(milliseconds);
+        player.setStartTime(currentTime);
+        long seconds = milliseconds / 1000;           //second to millisecond -> 1000
+        long day = seconds / 86400;                   //second to day -> 24*60*60 -> 86400
+        long hour = (seconds % 86400) / 3600;         //second to hour -> 60*60 -> 3600
+        long minute = (seconds % 86400) % 3600 / 60;  //second to minute -> 60
+        milliseconds = milliseconds % 1000;
+        seconds = (seconds % 86400) % 3600 % 60;
+
+        System.out.println("Playtime: " + day + "d: " + hour + "h: " + minute + "min: " + seconds + "s: "
+                + milliseconds + "ms");
+    }
+
+    /**
+     * This methode will move the player to his last location
+     *If the player uses this method instantly at the beginning, it will print "You are at the start".
+     *
+     * @param game defines the Game
+     */
+    public void safeMove(Game game) {
+        if (getLastRoom().size() > 1) {
+            getLastRoom().pop();
+            game.setActiveRoom(getLastRoom().peek());
+        } else {
+            System.out.println("You are at the start");
+        }
+    }
+
+    /**
+     * This method counts the possible steps that the player can go back and prints it.
+     */
+    public void countMovesPossibleBack() {
+        System.out.println(getLastRoom().size() - 1);
     }
 
     /**

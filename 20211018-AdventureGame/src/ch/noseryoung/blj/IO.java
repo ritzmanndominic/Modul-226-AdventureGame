@@ -12,8 +12,7 @@ public class IO {
         int choice;
         do {
             map(game);
-            choice = readRangedInt(1, 12);
-            //  game.safeMove(game, player, startTime, 0);
+            choice = readRangedInt(1, 10);
             switch (choice) {
                 //print possible rooms
                 case 1 -> possibleRoom(game.getActiveRoom(), game);
@@ -34,18 +33,18 @@ public class IO {
                 case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
 
                 //play time
-                //case 7 -> game.gameTime(player);
+                case 7 -> game.gameTime(player);
 
                 //go room back
-                // case 8 -> game.safeMove(game);
+                case 8 -> game.safeMove(game);
 
                 //print out possible steps back
-                //case 9 -> game.countMovesPossibleBack();
+                case 9 -> game.countMovesPossibleBack();
 
                 //Exit program
-                case 20 -> System.exit(0);
+                case 10 -> System.exit(0);
             }
-        } while (choice != 12);
+        } while (choice != 10);
     }
 
     /**
@@ -139,7 +138,7 @@ public class IO {
         System.out.println("\u001B[36m");
         drawMultipleBox(24, 3, 4, game, " 1: Print out the possible rooms ",
                 " 2: Move between rooms", "3: to inspect the room", "4: show inventory",
-                "5: Save data", "6: Load old data", "7: output playtime", "8: go one Room back", "9: Show possible steps back", "10: save items", "11: load items", "12: exit game");
+                "5: Save data", "6: Load old data", "7: output playtime", "8: go one Room back", "9: Show possible steps back", "10: exit game");
         System.out.print("\u001B[0m");
     }
 
