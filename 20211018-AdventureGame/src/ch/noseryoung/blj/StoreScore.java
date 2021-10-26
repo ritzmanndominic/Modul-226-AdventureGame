@@ -26,6 +26,7 @@ public class StoreScore {
         for (int i = 0; i < player.getItemList().size(); i++) {
             arrayList.add(player.getItemList().get(i).getName());
         }
+
         try {
             FileOutputStream fos = new FileOutputStream(fileWriteTo);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
