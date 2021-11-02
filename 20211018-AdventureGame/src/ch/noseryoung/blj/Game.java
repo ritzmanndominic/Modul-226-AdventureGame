@@ -23,7 +23,7 @@ public class Game {
     IO io = new IO();
 
     /**
-     * This method creates all of the main things in the game. (rooms, doors, items and adds the items)
+     * This method creates all of the main things in the game. (rooms, doors and also creating and adding items)
      */
     public Game() {
         rooms = new ArrayList<>();
@@ -70,9 +70,10 @@ public class Game {
     }
 
     /**
-     * this method will add all rooms to the arraylist
+     * This method will add all rooms to the arraylist
      * in the for each loop, we loop through the RoomNames Array and generate a random number.
      * When the random number is 1, the setEnemy is set to true.
+     * That means, that an enemy is in this room which you have to fight against.
      *
      * @param rooms the arraylist where the rooms will be added to
      */
@@ -365,43 +366,50 @@ public class Game {
     }
 
     /**
-     * Some getters and setters.
-     *
-     * @return
+     * Getter for Rooms
+     * @return rooms
      */
     public ArrayList<Room> getRooms() {
         return rooms;
     }
 
+    /**
+     * Getter for Items
+     * @return items
+     */
     public ArrayList<Item> getItems() {
         return items;
     }
 
+    /**
+     * Getter for doors
+     * @return doors
+     */
     public ArrayList<Door> getDoors() {
         return doors;
     }
 
+    /**
+     * Getter for active Room
+     * @return activeRoom
+     */
     public int getActiveRoom() {
         return activeRoom;
     }
 
+    /**
+     * Setter for active Room
+     * @param activeRoom to set the room
+     */
     public void setActiveRoom(int activeRoom) {
         this.activeRoom = activeRoom;
     }
 
+    /**
+     * Getter for last room
+     * @return lastRoom
+     */
     public Stack<Integer> getLastRoom() {
         return lastRoom;
-    }
-
-    public void setLastRoom(Stack<Integer> lastRoom) {
-        this.lastRoom = lastRoom;
-    }
-
-    public IO getIo() {
-        return io;
-    }
-
-    public void setIo(IO io) {
-        this.io = io;
     }
 }

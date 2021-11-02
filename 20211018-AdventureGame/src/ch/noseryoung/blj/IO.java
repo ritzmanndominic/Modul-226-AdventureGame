@@ -8,6 +8,13 @@ public class IO {
     public static Scanner scn = new Scanner(System.in);
     private int price = 0;
 
+    /**
+     * This method uses all methods to generate the game.
+     * A do while loop loops it through, so it never stops until you exit the game or die.
+     *
+     * @param game   which game is used
+     * @param player which player is used
+     */
     public void switcher(Game game, Player player) {
         game.getLastRoom().push(game.getActiveRoom());
         System.out.println("Try to steal as much Items from the abandoned House and escape from it. \n" +
@@ -118,6 +125,7 @@ public class IO {
     }
 
     /**
+     * This method
      * @param maxLength
      * @param usedLength
      * @return
@@ -209,8 +217,9 @@ public class IO {
     }
 
     /**
-     * @param amount
-     * @param color
+     * This method prints the Hearts the player has right now.
+     * @param amount how many hearts will be printed
+     * @param color which color is used for the heart
      */
     public void printHeart(int amount, String color) {
         if (color.equals("red")) {
@@ -241,8 +250,9 @@ public class IO {
     }
 
     /**
-     * @param player
-     * @param game
+     * This method prints the inventory and the price of all stolen items.
+     * @param player defines which player
+     * @param game defines which game
      */
     public void printInventory(Player player, Game game) {
         int amountBoxesInRow = 3;
@@ -264,7 +274,7 @@ public class IO {
     }
 
     /**
-     *
+     * This method is used, when an enemy appeared
      */
     public void printEnemy() {
         System.out.println("An enemy appeared");

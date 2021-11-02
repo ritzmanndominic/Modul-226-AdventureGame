@@ -7,6 +7,13 @@ import java.util.Date;
 
 public class StoreScore {
 
+    /**
+     * Saves the data of the player into a file
+     *
+     * @param fileWriteTo in which file it is saved
+     * @param player      which player
+     * @param game        which game
+     */
     public static void saveData(String fileWriteTo, Player player, Game game) {
         ArrayList<String> arrayList = new ArrayList<>();
         Date date = new Date();
@@ -40,6 +47,13 @@ public class StoreScore {
         }
     }
 
+    /**
+     * Loads data from the file
+     *
+     * @param fileToReadForm read data from which file
+     * @param player         which player
+     * @param game           which game
+     */
     public static void loadData(String fileToReadForm, Player player, Game game) {
         try {
             FileInputStream fis = new FileInputStream(fileToReadForm);
