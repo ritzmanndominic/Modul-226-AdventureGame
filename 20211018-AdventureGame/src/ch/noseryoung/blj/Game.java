@@ -99,8 +99,9 @@ public class Game {
     public void createItems(ArrayList<Item> items) {
         String[] itemNames = {"diamond", "gold", "coin", "golden skull", "ring", "sword", "bone", "cursed book", "wine", "easter egg"};
         boolean[] alarm = {false, false, false, true, false, true, true, true, false, false};
+        int[] price = {1000, 400, 10, 50, 700, 250, 5, 30, 25, 80};
         for (int i = 0; i < itemNames.length; i++) {
-            Item item = new Item(itemNames[i], alarm[i]);
+            Item item = new Item(itemNames[i], alarm[i], price[i]);
             items.add(item);
         }
     }
@@ -184,7 +185,7 @@ public class Game {
                 randomNumber = random.nextInt(getRooms().get(getActiveRoom()).getItemsArrayList().size());
             } while (getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getName().isEmpty());
             System.out.println("You have found " +
-                    getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getName());
+                    getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getName() + "\nThis item is " + getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getPrice() + " $ worth");
             //if the item has an alarm player will get damage
             if (getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).isAlarm()) {
                 System.out.println("Oh no I shouldn't have taken that!");
@@ -203,6 +204,7 @@ public class Game {
             //the item will be added to player inventory and removed from current room
             player.getItemList().add(getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber));
             getRooms().get(getActiveRoom()).getItemsArrayList().remove(randomNumber);
+
         } else {
             System.out.println("There seems to be no item in this room");
         }
@@ -359,7 +361,7 @@ public class Game {
      * This method counts the possible steps that the player can go back and prints it.
      */
     public void countMovesPossibleBack() {
-        System.out.println(getLastRoom().size() - 1);
+        System.out.println("Possible moves back " + (getLastRoom().size() - 1));
     }
 
     /**

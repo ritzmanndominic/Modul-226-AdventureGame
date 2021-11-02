@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class IO {
 
     public static Scanner scn = new Scanner(System.in);
+    private int price = 0;
 
     public void switcher(Game game, Player player) {
         game.getLastRoom().push(game.getActiveRoom());
@@ -47,7 +48,10 @@ public class IO {
                 case 9 -> game.countMovesPossibleBack();
 
                 //Exit program
-                case 10 -> System.exit(0);
+                case 10 -> {
+                    System.out.println("You successfully escaped from the neighbours house. \nYou escaped with " + price + "$");
+                    System.exit(0);
+                }
             }
         } while (choice != 10);
     }
@@ -244,7 +248,8 @@ public class IO {
         int amountBoxesInRow = 3;
         String[] name = new String[player.getItemList().size()];
         for (int i = 0; i < player.getItemList().size(); i++) {
-            name[i] = player.getItemList().get(i).getName();
+            name[i] = player.getItemList().get(i).getName() + " " + player.getItemList().get(i).getPrice() + "$";
+            price += player.getItemList().get(i).getPrice();
         }
 
         if (player.getItemList().size() == 0) {
@@ -253,6 +258,7 @@ public class IO {
             System.out.println("[Inventory]");
             drawMultipleBox(20, amountBoxesInRow, (player.getItemList().size() / amountBoxesInRow + 1),
                     game, name);
+            System.out.println("Your inventory is " + price + " $ worth");
         }
         System.out.println("\n");
     }

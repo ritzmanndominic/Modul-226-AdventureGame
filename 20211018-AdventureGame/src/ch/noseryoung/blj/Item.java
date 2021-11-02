@@ -6,13 +6,15 @@ package ch.noseryoung.blj;
 public class Item {
     private String name;
     private boolean alarm;
+    private int price;
 
     public Item() {
     }
 
-    public Item(String name, boolean alarm) {
+    public Item(String name, boolean alarm, int price) {
         this.name = name;
         this.alarm = alarm;
+        this.price = price;
     }
 
     public String getName() {
@@ -29,5 +31,13 @@ public class Item {
 
     public void setAlarm(boolean alarm) {
         this.alarm = alarm;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
