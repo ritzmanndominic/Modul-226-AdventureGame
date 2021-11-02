@@ -10,7 +10,7 @@ public class IO {
 
     public void switcher(Game game, Player player) {
         game.getLastRoom().push(game.getActiveRoom());
-        System.out.println("Try to steal as much Items from the neighbours House and escape from it. \n" +
+        System.out.println("Try to steal as much Items from the abandoned House and escape from it. \n" +
                 "Watch out for anything or anyone... \nPress Enter to continue");
 
         IO.scn.nextLine();
@@ -49,7 +49,7 @@ public class IO {
 
                 //Exit program
                 case 10 -> {
-                    System.out.println("You successfully escaped from the neighbours house. \nYou escaped with " + price + "$");
+                    System.out.println("You successfully escaped from the abandoned house. \nYou escaped with " + price + "$");
                     System.exit(0);
                 }
             }
