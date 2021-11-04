@@ -7,6 +7,7 @@ public class IO {
 
     public static Scanner scn = new Scanner(System.in);
     private int price = 0;
+    private int activeRoom = 0;
 
     /**
      * This method uses all methods to generate the game.
@@ -126,6 +127,7 @@ public class IO {
 
     /**
      * This method
+     *
      * @param maxLength
      * @param usedLength
      * @return
@@ -218,8 +220,9 @@ public class IO {
 
     /**
      * This method prints the Hearts the player has right now.
+     *
      * @param amount how many hearts will be printed
-     * @param color which color is used for the heart
+     * @param color  which color is used for the heart
      */
     public void printHeart(int amount, String color) {
         if (color.equals("red")) {
@@ -251,8 +254,9 @@ public class IO {
 
     /**
      * This method prints the inventory and the price of all stolen items.
+     *
      * @param player defines which player
-     * @param game defines which game
+     * @param game   defines which game
      */
     public void printInventory(Player player, Game game) {
         int amountBoxesInRow = 3;
