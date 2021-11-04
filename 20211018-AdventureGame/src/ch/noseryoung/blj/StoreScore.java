@@ -26,9 +26,9 @@ public class StoreScore {
 
         for (int i = 0; i < game.getRooms().size(); i++) {
             for (int j = 0; j < game.getRooms().get(i).getItemsArrayList().size(); j++) {
-                //arrayList.add(game.getRooms().get(i).getItemsArrayList().get(j).getName());
+                arrayList.add(game.getRooms().get(i).getItemsArrayList().get(j).getName());
                 //arrayList.add(player.getItemList().get(j).getName());
-                arrayList.add(game.getRooms().get(i).getItemsArrayList().get(j).getName() + game.getRooms().get(i).getItemsArrayList().get(j).getPrice());
+                //arrayList.add(game.getRooms().get(i).getItemsArrayList().get(j).getName() + game.getRooms().get(i).getItemsArrayList().get(j).getPrice());
             }
         }
 
