@@ -279,7 +279,7 @@ public class IO {
     /**
      * This method is used, when an enemy appeared
      */
-    public  {
+    public void printEnemy() {
         System.out.println("An enemy appeared");
         System.out.println(" ``  `` `` ``  `` `` ``  `` `` ``  `` `:++/:..` `` ``  `` `` ``  `` `` ``  `` `` ``  `` `` ``  `` ``\n" +
                 "`` `` ``` `` `` ``` `` `` ``` `` `.:ohmNNmmNNmmmhyyo+/:.``` `` `` ``` `` `` ``` `` `` ``` `` `` ``` \n" +
