@@ -56,8 +56,7 @@ public class IO {
 
                 //Exit program
                 case 10 -> {
-                    System.out.println("You successfully escaped from the abandoned house. \nYou escaped with " + price + "$");
-                    System.exit(0);
+                    listInformation(player);
                 }
             }
         } while (choice != 10);
@@ -319,4 +318,23 @@ public class IO {
                 "```````````````````````````````````````````````.ydddmNNh/```````````````````````````````````````````\n" +
                 " ``` `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` `oso/. `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``");
     }
+
+    public void listInformation(Player player) {
+        for (int i = 0; i < player.getItemList().size(); i++) {
+            price += player.getItemList().get(i).getPrice();
+        }
+        System.out.println("You successfully escaped from the abandoned house. \nYou escaped with " + price + "$");
+
+        if (player.getItemList().size() == 0) {
+            System.out.println("You collected no items");
+        } else {
+            System.out.print("You collected the listed items: ");
+            for (int i = 0; i < player.getItemList().size(); i++) {
+                System.out.print(player.getItemList().get(i).getName());
+                System.out.print(", ");
+            }
+        }
+        System.exit(0);
+    }
+
 }
