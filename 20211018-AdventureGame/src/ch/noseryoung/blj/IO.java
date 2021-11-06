@@ -319,6 +319,12 @@ public class IO {
                 " ``` `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` `oso/. `` `` ``` `` `` ``` `` `` ``` `` `` ``` `` ``");
     }
 
+    /**
+     * This method shows with how much items and money the player escaped.
+     * If no Item was found, a diffrent message is printed out. 
+     *
+     * @param player which player is used
+     */
     public void listInformation(Player player) {
         for (int i = 0; i < player.getItemList().size(); i++) {
             price += player.getItemList().get(i).getPrice();
