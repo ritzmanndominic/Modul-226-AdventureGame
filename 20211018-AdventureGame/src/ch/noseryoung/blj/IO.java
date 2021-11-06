@@ -7,7 +7,6 @@ public class IO {
 
     public static Scanner scn = new Scanner(System.in);
     private int price = 0;
-    private int activeRoom = 0;
 
     /**
      * This method uses all methods to generate the game.
@@ -280,7 +279,7 @@ public class IO {
     /**
      * This method is used, when an enemy appeared
      */
-    public void printEnemy() {
+    public  {
         System.out.println("An enemy appeared");
         System.out.println(" ``  `` `` ``  `` `` ``  `` `` ``  `` `:++/:..` `` ``  `` `` ``  `` `` ``  `` `` ``  `` `` ``  `` ``\n" +
                 "`` `` ``` `` `` ``` `` `` ``` `` `.:ohmNNmmNNmmmhyyo+/:.``` `` `` ``` `` `` ``` `` `` ``` `` `` ``` \n" +
