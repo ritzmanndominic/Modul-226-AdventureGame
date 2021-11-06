@@ -6,14 +6,26 @@ import java.util.Scanner;
 public class IO {
 
     public static Scanner scn = new Scanner(System.in);
+    private int price = 0;
 
+    /**
+     * This method uses all methods to generate the game.
+     * A do while loop loops it through, so it never stops until you exit the game or die.
+     *
+     * @param game   which game is used
+     * @param player which player is used
+     */
     public void switcher(Game game, Player player) {
         game.getLastRoom().push(game.getActiveRoom());
+        System.out.println("Try to steal as much Items from the abandoned House and escape from it. \n" +
+                "Watch out for anything or anyone... \nPress Enter to continue");
+
+        IO.scn.nextLine();
+
         int choice;
         do {
             map(game);
             choice = readRangedInt(1, 10);
-            //  game.safeMove(game, player, startTime, 0);
             switch (choice) {
                 //print possible rooms
                 case 1 -> possibleRoom(game.getActiveRoom(), game);
@@ -28,26 +40,40 @@ public class IO {
                 case 4 -> printInventory(player, game);
 
                 //save Data
-                // case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
+                case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
 
                 //Load Data
-                // case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
+                case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
 
                 //play time
-                //case 7 -> game.gameTime(player);
+                case 7 -> game.gameTime(player);
 
                 //go room back
-                // case 8 -> game.safeMove(game);
+                case 8 -> game.safeMove(game);
 
                 //print out possible steps back
-                //case 9 -> game.countMovesPossibleBack();
+                case 9 -> game.countMovesPossibleBack();
 
                 //Exit program
-                case 10 -> System.exit(0);
+                case 10 -> {
+                    System.out.println("You successfully escaped from the abandoned house. \nYou escaped with " + price + "$");
+                    System.exit(0);
+                }
             }
         } while (choice != 10);
     }
 
+    /**
+     * This method draws multiple boxes arround multiple Strings.
+     *
+     * @param maxLength defines the max lenght of a Box -> 20 meaning it prints 20 Times the 'HO_LINE'.
+     * @param width     defines how many boxes are on next to eachother.
+     * @param height    defines how many boxes are under eachother.
+     * @param game      defines for which game the boxes are drawn
+     * @param strings   write all of your Strings here and split the with a comma.
+     *                  -> "Attack", "Defense", "Heal"
+     *                  -> This will set each String in a Box. Width would be 3 and height 1.
+     */
     public static void drawMultipleBox(int maxLength, int width, int height, Game game, String... strings) {
         final String HO_LINE = "\u2550";
         final String VER_LINE = "\u2551";
@@ -98,6 +124,13 @@ public class IO {
         }
     }
 
+    /**
+     * This method
+     *
+     * @param maxLength
+     * @param usedLength
+     * @return
+     */
     private static int[] getLength(int maxLength, int usedLength) {
         int[] lengthDifference = new int[3];
         lengthDifference[0] = maxLength - usedLength;
@@ -110,6 +143,11 @@ public class IO {
         return lengthDifference;
     }
 
+    /**
+     * This method draws the map and the functions for the game.
+     *
+     * @param game defines which game
+     */
     public void map(Game game) {
         System.out.print("\u001B[0m");
         drawMultipleBox(20, 4, 4, game, "", "Balcony", "Balcony", "Balcony",
@@ -122,6 +160,14 @@ public class IO {
         System.out.print("\u001B[0m");
     }
 
+    /**
+     * This method prints out the possible rooms the player can get in.
+     * With the activeRoom the method searches for all door connections.
+     * It gets the name of each room and prints it out.
+     *
+     * @param activeRoom Gets where the player is right now.
+     * @param game       defines for which game
+     */
     public void possibleRoom(int activeRoom, Game game) {
         System.out.print("Possible rooms: ");
         boolean first = false;
@@ -143,6 +189,14 @@ public class IO {
         System.out.println("\n");
     }
 
+    /**
+     * This method reads an int between a range.
+     * If the number isn't in the range, an error will be printed.
+     *
+     * @param min defines the minimum number
+     * @param max defines the maximum number
+     * @return returns the typed number
+     */
     public static int readRangedInt(int min, int max) {
         Scanner scn = new Scanner(System.in);
         int input = min - 1;
@@ -153,7 +207,7 @@ public class IO {
         }
 
         while (input < min || input > max) {
-            System.out.println("There was an Error, please repeat your input");
+            System.err.println("There was an Error, please repeat your input");
             try {
                 input = scn.nextInt();
             } catch (InputMismatchException var5) {
@@ -163,6 +217,12 @@ public class IO {
         return input;
     }
 
+    /**
+     * This method prints the Hearts the player has right now.
+     *
+     * @param amount how many hearts will be printed
+     * @param color  which color is used for the heart
+     */
     public void printHeart(int amount, String color) {
         if (color.equals("red")) {
             System.out.println("\u001B[31m");
@@ -191,11 +251,18 @@ public class IO {
         System.out.println("\n\u001B[0m");
     }
 
+    /**
+     * This method prints the inventory and the price of all stolen items.
+     *
+     * @param player defines which player
+     * @param game   defines which game
+     */
     public void printInventory(Player player, Game game) {
         int amountBoxesInRow = 3;
         String[] name = new String[player.getItemList().size()];
         for (int i = 0; i < player.getItemList().size(); i++) {
-            name[i] = player.getItemList().get(i).getName();
+            name[i] = player.getItemList().get(i).getName() + " " + player.getItemList().get(i).getPrice() + "$";
+            price += player.getItemList().get(i).getPrice();
         }
 
         if (player.getItemList().size() == 0) {
@@ -204,10 +271,14 @@ public class IO {
             System.out.println("[Inventory]");
             drawMultipleBox(20, amountBoxesInRow, (player.getItemList().size() / amountBoxesInRow + 1),
                     game, name);
+            System.out.println("Your inventory is " + price + " $ worth");
         }
         System.out.println("\n");
     }
 
+    /**
+     * This method is used, when an enemy appeared
+     */
     public void printEnemy() {
         System.out.println("An enemy appeared");
         System.out.println(" ``  `` `` ``  `` `` ``  `` `` ``  `` `:++/:..` `` ``  `` `` ``  `` `` ``  `` `` ``  `` `` ``  `` ``\n" +
