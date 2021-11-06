@@ -98,4 +98,8 @@ public class Player {
     public int getMaxLives() {
         return maxLives;
     }
+
+    public void setItemList(ArrayList<Item> itemList) {
+        this.itemList = itemList;
+    }
 }

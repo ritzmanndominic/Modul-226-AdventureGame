@@ -24,17 +24,14 @@ public class StoreScore {
 
         arrayList.add(String.valueOf((currentTime.getTime() - player.getStartTime().getTime() + player.getGameTime())));
 
-        for (int i = 0; i < game.getRooms().size(); i++) {
-            for (int j = 0; j < game.getRooms().get(i).getItemsArrayList().size(); j++) {
-                arrayList.add(game.getRooms().get(i).getItemsArrayList().get(j).getName());
-                //arrayList.add(player.getItemList().get(j).getName());
-                //arrayList.add(game.getRooms().get(i).getItemsArrayList().get(j).getName() + game.getRooms().get(i).getItemsArrayList().get(j).getPrice());
-            }
+        for (int i = 0; i < game.getItems().size(); i++) {
+            arrayList.add(game.getItems().get(i).getName() + game.getItems().get(i).getPrice());
         }
 
-        for (int i = 0; i < player.getItemList().size(); i++) {
-            arrayList.add(player.getItemList().get(i).getName());
+        for (int j = 0; j < player.getItemList().size(); j++) {
+            arrayList.add(player.getItemList().get(j).getName() + player.getItemList().get(j).getPrice());
         }
+
 
         try {
             FileOutputStream fos = new FileOutputStream(fileWriteTo);
@@ -87,11 +84,10 @@ public class StoreScore {
                 arrayList.remove(0);
             }
 
-            //set item list
             for (int j = 0; j < game.getItems().size(); j++) {
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (arrayList.get(i).equals(game.getItems().get(j).getName())) {
-                        player.getItemList().add(game.getItems().get(i));
+                    if (arrayList.get(i).equals(game.getItems().get(j).getName() + game.getItems().get(j).getPrice())) {
+                        player.getItemList().add(game.getItems().get(j));
                     }
                 }
             }
