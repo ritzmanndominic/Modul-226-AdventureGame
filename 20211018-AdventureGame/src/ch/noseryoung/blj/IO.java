@@ -340,6 +340,8 @@ public class IO {
                 System.out.print(", ");
             }
         }
+        System.out.println("You had " + player.getLives() + " lives left");
+        printHeart(player.getLives(),"\u001B[32m");
         System.exit(0);
     }
 
