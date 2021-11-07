@@ -297,6 +297,15 @@ public class Game {
                 } else if (enemyLive <= 0) {
                     System.out.println("You defeated your enemy");
                     fightEnded = true;
+                    int item = random.nextInt(9) + 0;
+                    int chance = random.nextInt(2);
+                    if (chance == 1) {
+                        System.out.println("The enemy dropped " + game.getItems().get(item).getName() + " the item is " + game.getItems().get(item).getPrice() + "$ worth");
+                        player.getItemList().add(game.getItems().get(item));
+                    } else {
+                        System.out.println("The enemy dropped nothing");
+                    }
+
                 }
                 io.printHeart(player.getLives(), "red");
             } while (!fightEnded);
@@ -346,7 +355,7 @@ public class Game {
 
     /**
      * This methode will move the player to his last location
-     *If the player uses this method instantly at the beginning, it will print "You are at the start".
+     * If the player uses this method instantly at the beginning, it will print "You are at the start".
      *
      * @param game defines the Game
      */
@@ -368,6 +377,7 @@ public class Game {
 
     /**
      * Getter for Rooms
+     *
      * @return rooms
      */
     public ArrayList<Room> getRooms() {
@@ -376,6 +386,7 @@ public class Game {
 
     /**
      * Getter for Items
+     *
      * @return items
      */
     public ArrayList<Item> getItems() {
@@ -384,6 +395,7 @@ public class Game {
 
     /**
      * Getter for doors
+     *
      * @return doors
      */
     public ArrayList<Door> getDoors() {
@@ -392,6 +404,7 @@ public class Game {
 
     /**
      * Getter for active Room
+     *
      * @return activeRoom
      */
     public int getActiveRoom() {
@@ -400,6 +413,7 @@ public class Game {
 
     /**
      * Setter for active Room
+     *
      * @param activeRoom to set the room
      */
     public void setActiveRoom(int activeRoom) {
@@ -408,6 +422,7 @@ public class Game {
 
     /**
      * Getter for last room
+     *
      * @return lastRoom
      */
     public Stack<Integer> getLastRoom() {
