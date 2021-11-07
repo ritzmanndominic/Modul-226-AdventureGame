@@ -3,23 +3,7 @@
   <component name="ProjectKey">
     <option name="state" value="project://e2804f05-5315-4fc6-a121-c522a6c26470" />
   </component>
-<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
-=======
-<<<<<<< HEAD
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
-=======
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="openjdk-16" project-jdk-type="JavaSDK">
->>>>>>> origin/dev
-=======
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
->>>>>>> dev
->>>>>>> ec51171c3faeee674e455e8e3ef94ed2c82c5334
->>>>>>> 2f77481a7f84831264df673b2c789363bdc55751
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
