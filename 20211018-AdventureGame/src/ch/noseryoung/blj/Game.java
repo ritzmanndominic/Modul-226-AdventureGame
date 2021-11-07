@@ -164,7 +164,8 @@ public class Game {
     }
 
     /**
-     * Checks if room has items in it, it only checks for one item per use
+     * Checks if room has items in it, it only checks for one item per use.
+     * There is a chance that there are multiple items in one room.
      *
      * @param player to decrease player lives if item is alarmed
      */
