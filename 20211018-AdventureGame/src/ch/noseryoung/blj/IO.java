@@ -7,6 +7,7 @@ public class IO {
 
     public static Scanner scn = new Scanner(System.in);
     private int price = 0;
+    private int stackPrice = 0;
 
     /**
      * This method uses all methods to generate the game.
@@ -261,7 +262,8 @@ public class IO {
         String[] name = new String[player.getItemList().size()];
         for (int i = 0; i < player.getItemList().size(); i++) {
             name[i] = player.getItemList().get(i).getName() + " " + player.getItemList().get(i).getPrice() + "$";
-            price += player.getItemList().get(i).getPrice();
+            stackPrice = game.getPrice();
+            price = player.getItemList().get(i).getPrice();
         }
 
         if (player.getItemList().size() == 0) {
@@ -270,7 +272,7 @@ public class IO {
             System.out.println("[Inventory]");
             drawMultipleBox(20, amountBoxesInRow, (player.getItemList().size() / amountBoxesInRow + 1),
                     game, name);
-            System.out.println("Your inventory is " + price + " $ worth");
+            System.out.println("Your inventory is " + stackPrice + " $ worth");
         }
         System.out.println("\n");
     }
@@ -326,10 +328,7 @@ public class IO {
      * @param player which player is used
      */
     public void listInformation(Player player) {
-        for (int i = 0; i < player.getItemList().size(); i++) {
-            price += player.getItemList().get(i).getPrice();
-        }
-        System.out.println("You successfully escaped from the abandoned house. \nYou escaped with " + price + "$");
+        System.out.println("You successfully escaped from the abandoned house. \nYou escaped with " + stackPrice + "$");
 
         if (player.getItemList().size() == 0) {
             System.out.println("You collected no items");

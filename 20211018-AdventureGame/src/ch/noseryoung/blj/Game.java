@@ -19,6 +19,7 @@ public class Game {
     private final ArrayList<Item> items;
     private final ArrayList<Door> doors;
     private int activeRoom = 5;
+    private int price = 0;
     private Stack<Integer> lastRoom = new Stack<>();
     IO io = new IO();
 
@@ -188,6 +189,7 @@ public class Game {
             } while (getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getName().isEmpty());
             System.out.println("You have found " +
                     getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getName() + "\nThis item is " + getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getPrice() + " $ worth");
+            price += getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).getPrice();
             //if the item has an alarm player will get damage
             if (getRooms().get(getActiveRoom()).getItemsArrayList().get(randomNumber).isAlarm()) {
                 System.out.println("Oh no I shouldn't have taken that!");
@@ -427,5 +429,21 @@ public class Game {
      */
     public Stack<Integer> getLastRoom() {
         return lastRoom;
+    }
+
+    /**
+     * Getter for price
+     * @return
+     */
+    public int getPrice() {
+        return price;
+    }
+
+    /**
+     * Setter for price
+     * @param price
+     */
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
