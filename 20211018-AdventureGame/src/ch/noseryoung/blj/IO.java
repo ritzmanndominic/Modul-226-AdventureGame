@@ -124,7 +124,7 @@ public class IO {
     }
 
     /**
-     * This method
+     * This method gets the lenght
      *
      * @param maxLength
      * @param usedLength
