@@ -84,6 +84,7 @@ public class StoreScore {
                 arrayList.remove(0);
             }
 
+            //add to players arraylist
             for (int j = 0; j < game.getItems().size(); j++) {
                 for (int i = 0; i < arrayList.size(); i++) {
                     if (arrayList.get(i).equals(game.getItems().get(j).getName() + game.getItems().get(j).getPrice())) {
