@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class StoreScore {
 
+    int stackPrice = 0;
+
     /**
      * Saves the data of the player into a file
      *
@@ -14,7 +16,7 @@ public class StoreScore {
      * @param player      which player
      * @param game        which game
      */
-    public static void saveData(String fileWriteTo, Player player, Game game) {
+    public void saveData(String fileWriteTo, Player player, Game game) {
         ArrayList<String> arrayList = new ArrayList<>();
         Date date = new Date();
         Timestamp currentTime = new Timestamp(date.getTime());
@@ -30,6 +32,7 @@ public class StoreScore {
 
         for (int j = 0; j < player.getItemList().size(); j++) {
             arrayList.add(player.getItemList().get(j).getName() + player.getItemList().get(j).getPrice());
+
         }
 
 
@@ -51,7 +54,8 @@ public class StoreScore {
      * @param player         which player
      * @param game           which game
      */
-    public static void loadData(String fileToReadForm, Player player, Game game) {
+    public void loadData(String fileToReadForm, Player player, Game game) {
+        IO io = new IO();
         try {
             FileInputStream fis = new FileInputStream(fileToReadForm);
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -89,6 +93,7 @@ public class StoreScore {
                 for (int i = 0; i < arrayList.size(); i++) {
                     if (arrayList.get(i).equals(game.getItems().get(j).getName() + game.getItems().get(j).getPrice())) {
                         player.getItemList().add(game.getItems().get(j));
+                        stackPrice += game.getItems().get(j).getPrice();
                     }
                 }
             }

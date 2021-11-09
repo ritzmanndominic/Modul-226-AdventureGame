@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class IO {
 
+    StoreScore storeScore = new StoreScore();
     public static Scanner scn = new Scanner(System.in);
     private int price = 0;
-    private int stackPrice = 0;
 
     /**
      * This method uses all methods to generate the game.
@@ -41,10 +41,10 @@ public class IO {
                 case 4 -> printInventory(player, game);
 
                 //save Data
-                case 5 -> StoreScore.saveData("Store_Location-Items", player, game);
+                case 5 -> storeScore.saveData("Store_Location-Items", player, game);
 
                 //Load Data
-                case 6 -> StoreScore.loadData("Store_Location-Items", player, game);
+                case 6 -> storeScore.loadData("Store_Location-Items", player, game);
 
                 //play time
                 case 7 -> game.gameTime(player);
@@ -271,7 +271,7 @@ public class IO {
             System.out.println("[Inventory]");
             drawMultipleBox(20, amountBoxesInRow, (player.getItemList().size() / amountBoxesInRow + 1),
                     game, name);
-            System.out.println("Your inventory is " + price + " $ worth");
+            System.out.println("Your inventory is " + (price + storeScore.stackPrice) + " $ worth");
         }
         System.out.println("\n");
     }
@@ -322,7 +322,7 @@ public class IO {
 
     /**
      * This method shows with how much items and money the player escaped.
-     * If no Item was found, a diffrent message is printed out. 
+     * If no Item was found, a diffrent message is printed out.
      *
      * @param player which player is used
      */
@@ -339,8 +339,15 @@ public class IO {
             }
         }
         System.out.println("You had " + player.getLives() + " lives left");
-        printHeart(player.getLives(),"\u001B[32m");
+        printHeart(player.getLives(), "\u001B[32m");
         System.exit(0);
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
